@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0.40 # Cambia a esta versión estable dentro de la serie 8.x o usa "mysql:lts" para la última LTS
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: nest
+    ports:
+      - "3307:3306" 
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - nest_network
+
+volumes:
+  db_data:
+
+networks:
+  nest_network:

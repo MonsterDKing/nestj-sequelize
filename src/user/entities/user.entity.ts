@@ -1,5 +1,6 @@
 
-import { Table, Column, Model } from 'sequelize-typescript';
+import { Table, Column, Model, HasOne } from 'sequelize-typescript';
+import { Product } from '../../products/entities/product.entity';
 
 @Table
 export class User extends Model {
@@ -9,4 +10,9 @@ export class User extends Model {
 
     @Column
     password: string;
+
+
+    @HasOne(() => Product)
+    product: Product;
+    
 }
